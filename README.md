@@ -3,7 +3,7 @@
 - [Install Laravel on Mac and Windows OS
 ](https://www.dbestech.com/tutorials/how-to-install-laravel-on-mac-os)
 - [Build Laravel Admin Panel - Best Backend](https://www.dbestech.com/tutorials/build-laravel-admin-panel-best-backend)
-
+- [Youtube Tutorial](https://www.youtube.com/watch?v=sybdQGh6nAc&t=193s)
 
 - reate a new Laravel project via the Composer create-project command:
 ```
@@ -32,4 +32,25 @@ php artisan admin:install
 ```
 - Open http://localhost/admin/ in browser,use username admin and password admin to login.
 
+- Create model Article and ArticleType
+```
+php artisan make:model Article
+php artisan make:model ArticleType
+```
 
+- For these two models now we will create two controllers:
+```
+php artisan admin:make ArticleController --model='App\Models\Article'
+php artisan admin:make ArticleTypeController --model='App\Models\ArticleType'
+```
+
+- to create two migration files.
+```
+php artisan make:migration create_articles_table
+php artisan make:migration create_article_types_table
+```
+
+- migrate:
+```
+php artisan migrate
+```

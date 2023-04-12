@@ -13,4 +13,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->resource('articles', ArticleController::class);
+    $router->resource('article-types', ArticleTypeController::class);
+
+
 });
