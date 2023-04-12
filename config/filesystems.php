@@ -28,6 +28,7 @@ return [
     |
     */
 
+
     'disks' => [
 
         'local' => [
@@ -37,6 +38,16 @@ return [
         ],
 
         'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+        
+        // Soleve "Disk [admin] not configured, please add a disk config in `config/filesystems.php`." error
+
+        'admin' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',

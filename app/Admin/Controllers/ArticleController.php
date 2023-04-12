@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleType;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -12,20 +13,18 @@ class ArticleController extends AdminController
 {
     /**
      * Title for current resource.
-     *
-     * @var string
      */
     protected $title = 'Article';
 
     /**
      * For showing the records from the database.
-     * Make a grid builder.
      *
-     * @return Grid
      */
     protected function grid()
     {
         $grid = new Grid(new Article());
+        $grid->sub_title();
+        $grid->column('description', 'My Description');
 
 
 
@@ -50,13 +49,22 @@ class ArticleController extends AdminController
 
     /**
      * Create new record and submit
-     * Make a form builder.
-     *
-     * @return Form
      */
     protected function form()
     {
         $form = new Form(new Article());
+        $form->select('type_id')->options((new ArticleType())::selectOptions());  // drop down menu
+        $form->text('title', 'Add Title')->required(); // 'title' is coming from DB, 'Add Title' is what the user sees
+        $form->text('sub_title', 'Add Sub Title');
+        $form->image('thumbnail'); /// upload image
+        $form->textarea('description', 'Add Description')->required();
+        
+        // for switching/toggling between states
+        $states =[
+            'on'=>['value'=>1, 'text'=>'publish'],
+            'off'=>['value'=>0, 'text'=>'draft'],            
+        ];
+        $form->switch('released', 'Publish')->states($states);
 
 
 
