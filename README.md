@@ -4,6 +4,7 @@
 ](https://www.dbestech.com/tutorials/how-to-install-laravel-on-mac-os)
 - [Build Laravel Admin Panel - Best Backend](https://www.dbestech.com/tutorials/build-laravel-admin-panel-best-backend)
 - [Youtube Tutorial](https://www.youtube.com/watch?v=sybdQGh6nAc&t=193s)
+- [Problems and solutions](https://www.dbestech.com/tutorials/laravel-admin-panel-config-problems-and-solutions)
 
 - reate a new Laravel project via the Composer create-project command:
 ```

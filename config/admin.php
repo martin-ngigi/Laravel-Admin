@@ -156,6 +156,7 @@ return [
         'disk' => 'admin',
 
         // Image and file upload path under the disk above.
+        /// These directories contain images and files... i.e, public/upload/images
         'directory' => [
             'image' => 'images',
             'file'  => 'files',

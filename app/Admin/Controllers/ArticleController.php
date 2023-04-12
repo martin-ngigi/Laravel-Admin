@@ -25,6 +25,8 @@ class ArticleController extends AdminController
         $grid = new Grid(new Article());
         $grid->sub_title();
         $grid->column('description', 'My Description');
+        $grid->column('thumbnail', 'My Image')->image('','60','60');
+        //$grid->column('thumbnail', 'My Image');
 
 
 

@@ -47,12 +47,20 @@ return [
         
         // Soleve "Disk [admin] not configured, please add a disk config in `config/filesystems.php`." error
 
+        // 'admin' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/public'),
+        //     'url' => env('APP_URL').'/storage',
+        //     'visibility' => 'public',
+        //     'throw' => false,
+        // ],
+
+        /// Solve loading image error:
         'admin' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'driver'     => 'local',
+            'root'       => public_path('uploads'),
             'visibility' => 'public',
-            'throw' => false,
+            'url' => env('APP_URL').'uploads/',
         ],
 
         's3' => [
