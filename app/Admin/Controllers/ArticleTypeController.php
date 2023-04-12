@@ -6,7 +6,9 @@ use App\Models\ArticleType;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Encore\Admin\Tree;
 
 class ArticleTypeController extends AdminController
 {
@@ -18,21 +20,28 @@ class ArticleTypeController extends AdminController
     /**
      * For retreving fields. 
      */
+    /*
     protected function grid()
     {
         $grid = new Grid(new ArticleType());
         $grid -> title(); 
 
         /// OTHER DIFFERENT WAYS OF ACCESSING A COLUMN NAME
-        /**
-        * $grid -> title('My Title'); /// Rename it to "My Title"
-        * $grid ->column('title', __('My Name')); /// Rename it to "My Name"
-        * $grid ->column('title', 'Heading'); /// Rename it to "My Name"
-        */
+        // $grid -> title('My Title'); /// Rename it to "My Title"
+        // $grid ->column('title', __('My Name')); /// Rename it to "My Name"
+        // $grid ->column('title', 'Heading'); /// Rename it to "My Name"
 
         $grid ->column('id', 'ID'); 
 
         return $grid;
+    }
+    */
+
+    // draggable tree
+    public function index(Content $content)
+    {
+        $tree = new Tree(new ArticleType());
+        return $content->header('Article Category')->body($tree);
     }
 
     /**
