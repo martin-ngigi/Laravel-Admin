@@ -12,21 +12,25 @@ class ArticleTypeController extends AdminController
 {
     /**
      * Title for current resource.
-     *
-     * @var string
      */
     protected $title = 'Article Type';
 
     /**
-     * Make a grid builder.
-     *
-     * @return Grid
+     * For retreving fields. 
      */
     protected function grid()
     {
         $grid = new Grid(new ArticleType());
-        
+        $grid -> title(); 
 
+        /// OTHER DIFFERENT WAYS OF ACCESSING A COLUMN NAME
+        /**
+        * $grid -> title('My Title'); /// Rename it to "My Title"
+        * $grid ->column('title', __('My Name')); /// Rename it to "My Name"
+        * $grid ->column('title', 'Heading'); /// Rename it to "My Name"
+        */
+
+        $grid ->column('id', 'ID'); 
 
         return $grid;
     }
@@ -47,9 +51,7 @@ class ArticleTypeController extends AdminController
     }
 
     /**
-     * Make a form builder.
-     *
-     * @return Form
+     * For creating fields
      */
     protected function form()
     {
