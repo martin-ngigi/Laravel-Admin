@@ -23,6 +23,7 @@ class ArticleController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Article());
+        $grid->id();
         $grid->title();
         
         //show article_type... i.e. one to one relationship
@@ -38,6 +39,13 @@ class ArticleController extends AdminController
         $grid->column('released', 'Released')->bool();
         $grid->column('thumbnail', 'My Image')->image('','60','60');
         //$grid->column('thumbnail', 'My Image');
+
+        /// using title
+        $grid->filter(function($filter){
+            $filter->disableIdFilter();// disable Id Filter
+            $filter->like('title'); // Enable title filter
+            $filter->like('article.title', 'Category'); // Enable Category filter
+        });
 
 
 
