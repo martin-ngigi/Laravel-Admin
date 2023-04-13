@@ -5,6 +5,9 @@
 - [Build Laravel Admin Panel - Best Backend](https://www.dbestech.com/tutorials/build-laravel-admin-panel-best-backend)
 - [Youtube Tutorial](https://www.youtube.com/watch?v=sybdQGh6nAc&t=193s)
 - [Problems and solutions](https://www.dbestech.com/tutorials/laravel-admin-panel-config-problems-and-solutions)
+- [install text editor](https://www.dbestech.com/tutorials/install-text-editor-for-laravel-admin)
+- [Manually download and add Textedito files](https://www.dbestech.com/ueditor.zip)
+- [Laravel Render Html in Controller 5 different ways](https://www.dbestech.com/tutorials/5-different-ways-to-render-html-in-laravel)
 
 - reate a new Laravel project via the Composer create-project command:
 ```
@@ -55,3 +58,20 @@ php artisan make:migration create_article_types_table
 ```
 php artisan migrate
 ```
+
+## Install Text editor
+- Install Text Editor For Laravel Admin. First install the below command
+```
+composer require codingyu/ueditor
+```
+
+-Then you need to publish it to laravel using the below command:
+```
+php artisan vendor:publish --provider=Codingyu\LaravelUEditor\UEditorServiceProvider
+```
+- If you want to show images in the editor, run the below command:
+```
+php artisan storage:link
+```
+
+
